@@ -36,16 +36,30 @@ class _NewMessageState extends State<NewMessage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
+      margin: const EdgeInsets.symmetric(
         vertical: 8,
-        horizontal: 12,
+        horizontal: 6,
+      ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 8,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.grey[850],
+        borderRadius: BorderRadius.circular(30),
       ),
       child: Row(
         children: [
           Expanded(
             child: TextField(
               controller: _textController,
-              decoration: InputDecoration(labelText: 'Send a message...'),
+              decoration: InputDecoration(
+                labelText: 'Send a message...',
+                labelStyle: TextStyle(
+                  color: Colors.white70,
+                ),
+              ),
+              textCapitalization: TextCapitalization.sentences,
+              style: TextStyle(color: Colors.white),
               onChanged: (value) {
                 setState(() {
                   _enteredMessage = value;
