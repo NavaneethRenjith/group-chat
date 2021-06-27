@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 class MessageBubble extends StatelessWidget {
   final String message;
@@ -45,18 +44,19 @@ class MessageBubble extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                // isMe ? 'You' : username, //! try this
-                username,
-                style: TextStyle(
-                  // color: Theme.of(context).accentTextTheme.headline6!.color,
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.bold,
+              if (!isMe)
+                Text(
+                  username,
+                  style: TextStyle(
+                    // color: Theme.of(context).accentTextTheme.headline6!.color,
+                    color: Theme.of(context).primaryColor,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 4,
-              ),
+              if (!isMe)
+                SizedBox(
+                  height: 4,
+                ),
               Text(
                 message,
                 style: TextStyle(

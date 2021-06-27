@@ -15,6 +15,8 @@ class ChatScreen extends StatelessWidget {
         title: Text('ChatApp'),
         actions: [
           DropdownButton(
+            underline:
+                Container(), // by default, there was an unnecessary underline
             icon: Icon(
               Icons.more_vert,
               color: Theme.of(context).primaryIconTheme.color,
@@ -53,10 +55,6 @@ class ChatScreen extends StatelessWidget {
               child: Messages(),
             ),
             NewMessage(),
-            //! Remove this
-            SizedBox(
-              height: 50,
-            ),
           ],
         ),
       ),
